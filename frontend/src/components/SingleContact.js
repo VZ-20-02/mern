@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 const axios = require('axios').default;
 
@@ -13,7 +13,7 @@ const SingleContact = () => {
                 setData(user.data)
             })
             .catch(err => console.log(err))
-    }, [])
+    }, [id])
     const handleDelete = () => {
         axios
             .delete(`http://localhost:5000/contact/${id}`)
@@ -27,6 +27,7 @@ const SingleContact = () => {
                 <p>{data.email}</p>
                 <p>{data.tel}</p>
                 <button onClick={handleDelete}>Delete</button>
+                <Link to={`/contacts/${id}/edit`}>Edit</Link>
             </div>
                 : "Loading"}
         </div>

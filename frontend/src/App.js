@@ -9,6 +9,7 @@ import Home from './components/Home';
 import Contacts from './components/Contacts';
 import Add from './components/Add';
 import SingleContact from './components/SingleContact';
+import ContactEdit from './components/ContactEdit';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/contacts" component={Contacts} exact />
+          <Route path="/contacts/:id/edit" component={ContactEdit} />
           <Route path="/contacts/:id" component={SingleContact} />
           <Route path="/add" component={Add} />
         </Switch>
